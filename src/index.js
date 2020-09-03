@@ -10,7 +10,9 @@ import * as serviceWorker from './serviceWorker';
 import { searchRobots, requestRobots } from './reducers';
 import 'tachyons';
 
-const logger = createLogger();
+const logger = createLogger({
+  predicate: () => process.env.NODE_ENV !== 'production'
+});
 
 const rootReducer = combineReducers({searchRobots, requestRobots});
 const store = 
